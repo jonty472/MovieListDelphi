@@ -2,8 +2,7 @@ program MovieList;
 
 uses
   Vcl.Forms,
-  FormMovieList in '..\FormMovieList.pas' {Form1},
-  GridItemMovie in 'GridItemMovie.pas';
+  Unit1 in '..\Unit1.pas' {Form1};
 
 {$R *.res}
 
