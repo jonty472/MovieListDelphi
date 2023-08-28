@@ -24,11 +24,15 @@ type
     constructor Create(movieWatchlist: TObjectList<MovieDetails>);
 
     // use these functions with a comparer instance
-    function SortByName(movieItem1: MovieDetails;
+    function CompareByName(movieItem1: MovieDetails;
                               movieItem2: MovieDetails): integer;
 
-    function SortHighestRating(movieItem1: MovieDetails;
+    function CompareHighestRating(movieItem1: MovieDetails;
                                movieItem2: MovieDetails): integer;
+
+
+    procedure SortByHighestRating;
+    procedure Sort;
 
   end;
 implementation
@@ -38,13 +42,13 @@ begin
   _movieWatchlist := movieWatchlist;
 end;
 
-function Watchlist.SortByName(movieItem1: MovieDetails; movieItem2: MovieDetails): Integer;
+function Watchlist.CompareByName(movieItem1: MovieDetails; movieItem2: MovieDetails): Integer;
 begin
 // somehow sort by MovieDetails _movieTitle
 
 end;
 
-function Watchlist.SortHighestRating(movieItem1: MovieDetails; movieItem2: MovieDetails): Integer;
+function Watchlist.CompareHighestRating(movieItem1: MovieDetails; movieItem2: MovieDetails): Integer;
 begin
 // if movieItem1 > movieItem2
   // return 1

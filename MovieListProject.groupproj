@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{FE44F158-7DC6-4AD8-ADC4-1B23EDD5E9DE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MovieList.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MovieListCli.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TestingComparer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MovieList">
+        <MSBuild Projects="MovieList.dproj"/>
+    </Target>
+    <Target Name="MovieList:Clean">
+        <MSBuild Projects="MovieList.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MovieList:Make">
+        <MSBuild Projects="MovieList.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MovieListCli">
+        <MSBuild Projects="MovieListCli.dproj"/>
+    </Target>
+    <Target Name="MovieListCli:Clean">
+        <MSBuild Projects="MovieListCli.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MovieListCli:Make">
+        <MSBuild Projects="MovieListCli.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestingComparer">
+        <MSBuild Projects="TestingComparer.dproj"/>
+    </Target>
+    <Target Name="TestingComparer:Clean">
+        <MSBuild Projects="TestingComparer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestingComparer:Make">
+        <MSBuild Projects="TestingComparer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MovieList;MovieListCli;TestingComparer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MovieList:Clean;MovieListCli:Clean;TestingComparer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MovieList:Make;MovieListCli:Make;TestingComparer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
