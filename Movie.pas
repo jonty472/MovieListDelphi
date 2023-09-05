@@ -16,10 +16,8 @@ type
 
     constructor Create(title: string; releaseDate: integer; rating: integer);
 
-    property MovieTitle: string read _title write _title;
-
-
-
+    property Title: string read _title;
+    property ReleaseDate: Integer read _releaseDate;
 
   end;
 
@@ -29,7 +27,6 @@ constructor MovieDetails.Create(title: string; releaseDate: Integer; rating: Int
 begin
   _title := title;
   _releaseDate := releaseDate;
-  _rating := rating;
 end;
 
 end.
