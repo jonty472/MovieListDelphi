@@ -13,38 +13,32 @@ uses
 
 begin
 
-var object1, object2: MovieDetails;
-
-var CompareByRating: IComparer<MovieDetails>;
-
-var CompareByReleaseDate: IComparer<MovieDetails>;
-
-var MyList: TList<MovieDetails>;
-
-var Item: MovieDetails;
+var
+  movie1, movie2: MovieDetails;
+  CompareByRating: IComparer<MovieDetails>;
+  CompareByReleaseDate: IComparer<MovieDetails>;
+  MyList: TList<MovieDetails>;
+  Item: MovieDetails;
 
   try
-  object1 := MovieDetails.Create('gladiator', 10, 2000);
-  object2 := MovieDetails.Create('oldboy', 8, 2003);
+  movie1 := MovieDetails.Create('gladiator', 10, 2000);
+  movie2 := MovieDetails.Create('oldboy', 8, 2003);
 
   CompareByRating := MovieComparer.Create;
-  CompareByRating.Compare(object1, object2);
+  CompareByRating.Compare(movie1, movie2);
 
   MyList := TObjectList<MovieDetails>.Create;
 
-  MyList.Add(object1);
-  MyList.Add(object2);
+  MyList.Add(movie1);
+  MyList.Add(movie2);
 
-  MyList.Sort(MyComparer);
+  MyList.Sort(CompareByRating);
 
   for Item in MyList do
   begin
     writeln(Item.Title, Item.ReleaseDate);
   end;
 
-
-
-  Writeln('hello world');
 
   readln;
   except
